@@ -26,5 +26,29 @@ namespace MyFirstApp.Controllers
 
             return View();
         }
+        public ActionResult Help()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Resume()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Portfolio()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Blog()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
