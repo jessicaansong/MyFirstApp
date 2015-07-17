@@ -102,7 +102,9 @@ namespace MyFirstApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blogPost).State = EntityState.Modified;
+               // Blog.Models.blogPost=System.DateTimeOffset.Now;
+                blogPost.Updated = System.DateTimeOffset.Now;
+                 db.Entry(blogPost).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -49,8 +49,8 @@
         <td>
             @Html.DisplayFor(modelItem => item.Slug)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Blog)
+        <td class="ellipsis">
+            @Html.Raw( item.Blog)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MediaURL)
@@ -67,3 +67,6 @@
 }
 
 </table>
+@section scripts{
+<script src="~/Scripts/Ellipsis.js"></script>
+}

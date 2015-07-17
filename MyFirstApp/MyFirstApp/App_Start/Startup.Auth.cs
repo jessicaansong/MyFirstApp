@@ -54,15 +54,15 @@ namespace MyFirstApp
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+             app.UseFacebookAuthentication(
+            appId: "501953116638066",
+            appSecret: "a5a7c1920682f973204b485af13fb946");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "867188905275-b02rvriujafuhoephjp7ds0vvn190d05.apps.googleusercontent.com",
+            ClientSecret = "V0m6rrSOhd8QN-nyIakjDPdI"
+            });
         }
     }
 }

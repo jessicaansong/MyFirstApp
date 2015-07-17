@@ -11,6 +11,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using MyFirstApp.Models;
+using System.Configuration;
+using System.Net;
+using System.Web.Services.Description;
+using System.Net.Mail;
+using SendGrid;
 
 namespace MyFirstApp
 {
@@ -18,8 +23,35 @@ namespace MyFirstApp
     {
         public Task SendAsync(IdentityMessage message)
         {
+
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+
+            // GET CREDENTIALS FROM THE APPCONFIG //
+
+            var username = ConfigurationManager.AppSettings["SendGridUserName"];
+            var password = ConfigurationManager.AppSettings["SendGridPassword"];
+            var from = ConfigurationManager.AppSettings["ContactEmail"];
+
+            SendGridMessage myMessage = new SendGridMessage();
+
+            // CONFIGURE SENDGRID EMAIL ///
+
+            myMessage.AddTo(message.Destination);
+            myMessage.From = new MailAddress(from);
+//       myMessage.Subject = message.Subject;
+//            myMessage.Text = message.Body;
+            myMessage.Html = message.Body;
+
+
+            //Create Credintals
+            var credentials = new NetworkCredential(username, password); 
+
+            // CONFIGURE SENDGRID E-MAIL
+
+            var transportWeb = new Web(credentials);
+
+            //Send Email
+            return transportWeb.DeliverAsync(myMessage);
         }
     }
 

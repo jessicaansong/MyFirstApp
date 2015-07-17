@@ -4,8 +4,10 @@
     ViewBag.Title = "Details";
 }
 
+<!--JQUERY DOT DOT DOT-->  
+<script src="~/Views/BlogPosts/jquery.dotdotdot.min.js"></script>
+<!--JQUERY DOT DOT DOT ENDS-->  
 
-      
 <div class="container">
     <div class="row">
         <div class="col-sm-8">
@@ -19,12 +21,15 @@
                 <li><i class="fa fa-comments-o"></i> Comments </li>
             </ul>
             <hr>
-            <!--==============================================================================NEW POST=================================================================-->
+            <!--==========================NEW POST========================-->
+
+            <p class="blog-text">
           
-              <p class="blog-text">
-                  <p class="lead">
-                    @Html.DisplayFor(model => model.Blog)
+            <p class="lead">
+                @Html.Raw(Model.Blog)
             </p>
+         
+                
             <!-- New comment form -->
             <div class="new-comment">
                 <form class="form-horizontal" role="form">
